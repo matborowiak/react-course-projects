@@ -30,6 +30,26 @@ var template = React.createElement(
     )
 );
 
+var templateTwo = React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'h1',
+        null,
+        'Mateusz Borowiak'
+    ),
+    React.createElement(
+        'p',
+        null,
+        'Age: 29'
+    ),
+    React.createElement(
+        'p',
+        null,
+        'Location: Berlin'
+    )
+);
+
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(templateTwo, appRoot);
