@@ -1,7 +1,11 @@
 'use strict';
 
-// JSX - Javascript XML
-var template = React.createElement(
+var app = {
+    titile: 'This is Title',
+    subtitle: 'Of the best Movie Ever'
+
+    // JSX - Javascript XML
+};var template = React.createElement(
     'div',
     null,
     React.createElement(
@@ -20,12 +24,12 @@ var template = React.createElement(
         React.createElement(
             'li',
             null,
-            'Item One'
+            app.titile
         ),
         React.createElement(
             'li',
             null,
-            'Item Two'
+            app.subtitle
         )
     )
 );
@@ -59,4 +63,4 @@ var templateTwo = React.createElement(
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
