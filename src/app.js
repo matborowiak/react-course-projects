@@ -9,12 +9,17 @@ var template = (
         </ol>
     </div>
 )
+var user = {
+    name: 'Mateusz',
+    age: 29,
+    location: 'Berlin',
+}
 
 var templateTwo = (
     <div>
-        <h1>Mateusz Borowiak</h1>
-        <p>Age: 29</p>
-        <p>Location: Berlin</p>
+        <h1>{user.name}</h1>
+        <p>Age: {user.age}</p>
+        <p>Location: {user.location}</p>
     </div>
 )
 
