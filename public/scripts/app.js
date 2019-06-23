@@ -1,21 +1,10 @@
 'use strict';
 
 var paragraph = void 0;
-var buttonText = 'Show details';
+var visibility = false;
 
 var visibilityToggle = function visibilityToggle() {
-    if (paragraph) {
-        paragraph = undefined;
-        buttonText = 'Show details';
-    } else {
-        paragraph = React.createElement(
-            'p',
-            null,
-            'Hey, these are some details you can now see!'
-        );
-        buttonText = 'Hide details';
-    }
-
+    visibility = !visibility;
     render();
 };
 
@@ -32,9 +21,17 @@ var render = function render() {
         React.createElement(
             'button',
             { onClick: visibilityToggle },
-            buttonText
+            visibility ? 'Hide details' : 'Show Details'
         ),
-        paragraph
+        visibility && React.createElement(
+            'div',
+            null,
+            React.createElement(
+                'p',
+                null,
+                'Hey, These are some details you can now see!'
+            )
+        )
     );
     ReactDOM.render(app, appRoot);
 };

@@ -1,15 +1,8 @@
 let paragraph
-let buttonText = 'Show details'
+let visibility = false
 
 const visibilityToggle = () => {
-    if (paragraph) {
-        paragraph = undefined
-        buttonText = 'Show details'
-    } else {
-        paragraph = <p>Hey, these are some details you can now see!</p>
-        buttonText = 'Hide details'
-    }
-
+    visibility = !visibility
     render()
 }
 
@@ -18,8 +11,14 @@ const render = () => {
     const app = (
         <div>
             <h1>Visibility Toggle</h1>
-            <button onClick={visibilityToggle}>{buttonText}</button>
-            {paragraph}
+            <button onClick={visibilityToggle}>
+                {visibility ? 'Hide details' : 'Show Details'}
+            </button>
+            {visibility && (
+                <div>
+                    <p>Hey, These are some details you can now see!</p>
+                </div>
+            )}
         </div>
     )
     ReactDOM.render(app, appRoot)
