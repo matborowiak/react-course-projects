@@ -4,9 +4,9 @@ var app = {
     options: []
 }
 
-const onFormSubmit = (e) => {
+const onFormSubmit = e => {
     e.preventDefault(e)
-    
+
     const option = e.target.elements.option.value
     if (option) {
         app.options.push(option)
@@ -14,6 +14,8 @@ const onFormSubmit = (e) => {
         render()
     }
 }
+
+const appRoot = document.getElementById('app')
 
 const onRemove = () => {
     app.options = []
@@ -25,12 +27,17 @@ const render = () => {
         <div>
             <h1>{app.titile}</h1>
             {app.subtitle && <p>{app.subtitle}</p>}
-            <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
+            <p>
+                {app.options.length > 0
+                    ? 'Here are your options'
+                    : 'No options'}
+            </p>
             <p>{app.options.length}</p>
             <button onClick={onRemove}>Remove All</button>
             <ol>
-                <li>Item one</li>
-                <li>Item two</li>
+                {
+                    app.options.map(e => <li key={e}>{e}</li>)
+                }
             </ol>
             <form onSubmit={onFormSubmit}>
                 <input type="text" name="option" />
@@ -40,6 +47,5 @@ const render = () => {
     )
     ReactDOM.render(template, appRoot)
 }
-const appRoot = document.getElementById('app')
 
 render()

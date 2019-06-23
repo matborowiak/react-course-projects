@@ -17,6 +17,8 @@ var onFormSubmit = function onFormSubmit(e) {
     }
 };
 
+var appRoot = document.getElementById('app');
+
 var onRemove = function onRemove() {
     app.options = [];
     render();
@@ -54,16 +56,13 @@ var render = function render() {
         React.createElement(
             'ol',
             null,
-            React.createElement(
-                'li',
-                null,
-                'Item one'
-            ),
-            React.createElement(
-                'li',
-                null,
-                'Item two'
-            )
+            app.options.map(function (e) {
+                return React.createElement(
+                    'li',
+                    { key: e },
+                    e
+                );
+            })
         ),
         React.createElement(
             'form',
@@ -78,6 +77,5 @@ var render = function render() {
     );
     ReactDOM.render(template, appRoot);
 };
-var appRoot = document.getElementById('app');
 
 render();
