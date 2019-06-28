@@ -45,7 +45,7 @@ class Options extends React.Component {
     render() {
         return (
             <div>
-            <button onClick={this.handleRemoveAll}>Remove all</button>
+                <button onClick={this.handleRemoveAll}>Remove all</button>
                 {this.props.options.map(option => (
                     <Option key={option} optionText={option} />
                 ))}
@@ -61,8 +61,21 @@ class Option extends React.Component {
 }
 
 class AddOption extends React.Component {
+    onSubmit(e) {
+        e.preventDefault()
+        if (e.target.elements.option.value) {
+            alert(e.target.elements.option.value)
+        }
+    }
     render() {
-        return <div>comp add option</div>
+        return (
+            <div>
+                <form onSubmit={this.onSubmit}>
+                    <input type="text" name="option" />
+                    <button>Add</button>
+                </form>
+            </div>
+        )
     }
 }
 
