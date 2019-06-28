@@ -4,7 +4,10 @@ class Person {
         this.age = age
     }
     getGreeting() {
-        return `Hello ${this.name}`
+        return `Hi. I am ${this.name}`
+    }
+    getDescription() {
+        return `${this.name} is ${this.age} year(s) old.`
     }
 }
 
@@ -15,3 +18,4 @@ const other = new Person()
 console.log(other)
 
 console.log(me.getGreeting())
+console.log(me.getDescription())
