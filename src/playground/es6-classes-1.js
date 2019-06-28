@@ -11,11 +11,43 @@ class Person {
     }
 }
 
-const me = new Person('Mateusz Borowiak', 29)
-console.log(me)
+class Student extends Person {
+    constructor(name, age, major) {
+        super(name, age)
+        this.major = major
+    }
+    hasMajor() {
+        return !!this.major
+    }
+    getDescription() {
+        let description = super.getDescription()
+        if (this.hasMajor()) {
+            description += ` Their major is ${this.major}.`
+        }
+        return description
+    }
+}
 
-const other = new Person()
-console.log(other)
+class Traveler extends Person {
+    constructor(name, age, major, homeLocation) {
+        super(name, age, major)
+        this.homeLocation = homeLocation
+    }
+    homeLocation() {
+        return !!this.homeLocation
+    }
+    getGreeting() {
+        let greeting = super.getGreeting()
+        if (this.homeLocation) {
+            greeting += ` I'm visiting from ${this.homeLocation}.`
+        }
+        return greeting
+    }
+}
 
+const me = new Traveler('Mateusz Borowiak', 29, 'Architecture', 'Berlin')
 console.log(me.getGreeting())
-console.log(me.getDescription())
+
+const other = new Student()
+console.log(other.getGreeting())
+
