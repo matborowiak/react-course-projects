@@ -1,3 +1,6 @@
-export const isAdult = (age) => age > 17 ? true : false
+const isAdult = (age) => age >= 18
+const canDrink = (age) => age >= 21
+const isSenior = (age) => age >=64
 
-export const canDrink = (age) => age > 20 ? true : false
+
+export { isAdult, canDrink, isSenior as default}
