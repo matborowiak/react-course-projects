@@ -1,2 +1,2 @@
 # react-course-projects
-These are my React projects for the Udemy course by Andrew Mead
+These are my React projects for the course led by Andrew Mead
