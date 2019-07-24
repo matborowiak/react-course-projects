@@ -1,2 +1,2 @@
-# react-course-projects
-These are my React projects for the course led by Andrew Mead
+# indecision-app
+This is my React project for the course led by Andrew Mead
